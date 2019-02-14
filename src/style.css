@@ -126,6 +126,13 @@ footer {
     color: #00a1b4;
     text-decoration: none;
     font-size: 13px;
+    cursor: pointer;
+
+    
+}
+.filter-header .clear:hover {
+    text-decoration: underline;
+    
 }
 
 .column-left {

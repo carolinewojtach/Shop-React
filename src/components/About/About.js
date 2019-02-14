@@ -4,7 +4,7 @@ import Container from "../Container/Container";
 const About = () => {
   return (
     <Container>
-      <h1 class="header-big">About</h1>
+      <h1 className="header-big">About</h1>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris
         scelerisque odio pharetra, rhoncus velit eget, feugiat magna. Integer ac

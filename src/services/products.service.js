@@ -10,10 +10,6 @@ class ProductsService {
     return _.uniq(manufacturers);
   }
 
-  // static getProductsFeatured() {
-  //   return products.filter(product => product.featured === true);
-  // }
-
   static getFilteredProducts(property, value) {
     return products.filter(product => product[property] === value);
   }

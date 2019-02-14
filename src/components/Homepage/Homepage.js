@@ -23,6 +23,7 @@ class Homepage extends Component {
         <div className="products">
           {desktopsFeatured.map(product => (
             <Product
+              key={product.id}
               id={product.id}
               name={product.name}
               image={product.image}
@@ -37,6 +38,7 @@ class Homepage extends Component {
         <div className="products">
           {tabletsFeatured.map(product => (
             <Product
+              key={product.id}
               id={product.id}
               name={product.name}
               image={product.image}

@@ -8,7 +8,9 @@ class Catalog extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      products: ProductsService.getProducts()
+      products: ProductsService.getProducts(),
+      placeholder: "search...",
+      searchText: ""
     };
   }
 
@@ -28,8 +30,25 @@ class Catalog extends Component {
     }
   };
 
-  filterSearched = value => {
-    console.log(value);
+  filterProducts = searchText => {
+    searchText = searchText.toLowerCase();
+    const products = ProductsService.getProducts().filter(p =>
+      p.name.toLowerCase().includes(searchText)
+    );
+
+    this.setState({
+      products,
+      searchText
+    });
+    console.log("searchText: " + this.state.searchText);
+  };
+
+  clearProducts = () => {
+    this.setState({
+      products: ProductsService.getProducts(),
+      placeholder: "search...",
+      searchText: ""
+    });
   };
 
   render() {
@@ -39,8 +58,13 @@ class Catalog extends Component {
         <h1 className="header-big">Catalog</h1>
         <div className="catalog">
           <Sidebar
-            onCheck={this.showByManufacture}
-            onSearch={this.filterSearched}
+            onManufactureCheck={elemChecked =>
+              this.showByManufacture(elemChecked)
+            }
+            onSearch={this.filterProducts}
+            clearProducts={this.clearProducts}
+            searchText={this.state.searchText}
+            placeholder={this.state.placeholder}
           />
 
           <div className="column-right">
