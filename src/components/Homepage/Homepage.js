@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Container from "../Container/Container";
-import Product from "../Product/Product";
+import ProductsList from "../ProductsList/ProductsList";
 import ProductsService from "../../services/products.service";
 
 class Homepage extends Component {
@@ -20,34 +20,10 @@ class Homepage extends Component {
         <h1 className="header-big">Welcome to our store</h1>
 
         <h2 className="header-small">Desktops</h2>
-        <div className="products">
-          {desktopsFeatured.map(product => (
-            <Product
-              key={product.id}
-              id={product.id}
-              name={product.name}
-              image={product.image}
-              manufacture={product.manufacture}
-              price={product.amount}
-              category={product.category}
-            />
-          ))}
-        </div>
+        <ProductsList products={desktopsFeatured} />
 
         <h2 className="header-small">Tablets</h2>
-        <div className="products">
-          {tabletsFeatured.map(product => (
-            <Product
-              key={product.id}
-              id={product.id}
-              name={product.name}
-              image={product.image}
-              manufacture={product.manufacture}
-              price={product.amount}
-              category={product.category}
-            />
-          ))}
-        </div>
+        <ProductsList products={tabletsFeatured} />
       </Container>
     );
   }

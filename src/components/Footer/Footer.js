@@ -1,16 +1,15 @@
 import React from "react";
+import Container from "../Container/Container";
 
 const Footer = () => {
   return (
-    <div>
-      <footer>
-        <div className="container">
-          <p>
-            Shop © 2020 <br /> Designed by Andrzej
-          </p>
-        </div>
-      </footer>
-    </div>
+    <footer>
+      <Container>
+        <p>
+          Shop © 2020 <br /> Designed by Andrzej
+        </p>
+      </Container>
+    </footer>
   );
 };
 

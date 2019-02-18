@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import RadioInput from "../RadioInput/RadioInput";
+
 import ProductsService from "../../services/products.service";
+import PropTypes from "prop-types";
+import Search from "../Search/Search";
 
 class Sidebar extends Component {
   constructor(props) {
@@ -16,20 +19,13 @@ class Sidebar extends Component {
     return (
       <div className="column-left">
         <div className="filter">
-          <div className="filter-header">
-            <h4>Search</h4>
-            <div onClick={this.props.clearProducts} className="clear">
-              Clear
-            </div>
-          </div>
-          <div>
-            <input
-              type="text"
-              value={this.props.searchText}
-              placeholder={this.props.placeholder}
-              onChange={this.handleSearchInput}
-            />
-          </div>
+          <Search
+            clearProducts={this.props.clearProducts}
+            searchText={this.props.searchText}
+            placeholder={this.props.placeholder}
+            handleSearchInput={this.handleSearchInput}
+          />
+
           <h4>Manufacturer</h4>
           <div>
             {this.manufacturers.map(manufacturer => (
@@ -49,3 +45,11 @@ class Sidebar extends Component {
   }
 }
 export default Sidebar;
+
+Sidebar.propTypes = {
+  searchText: PropTypes.string,
+  placeholder: PropTypes.string,
+  onSearch: PropTypes.func,
+  clearProducts: PropTypes.func,
+  onManufactureCheck: PropTypes.func
+};

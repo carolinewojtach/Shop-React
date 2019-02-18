@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const RadioInput = ({ id, value, onManufactureCheck }) => {
   return (
@@ -16,3 +17,9 @@ const RadioInput = ({ id, value, onManufactureCheck }) => {
 };
 
 export default RadioInput;
+
+RadioInput.propTypes = {
+  id: PropTypes.string,
+  value: PropTypes.string,
+  onManufactureCheck: PropTypes.func
+};

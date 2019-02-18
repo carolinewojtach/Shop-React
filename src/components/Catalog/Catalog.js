@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Container from "../Container/Container";
-import Product from "../Product/Product";
+import ProductsList from "../ProductsList/ProductsList";
 import Sidebar from "../Sidebar/Sidebar";
 import ProductsService from "../../services/products.service";
 
@@ -68,19 +68,7 @@ class Catalog extends Component {
           />
 
           <div className="column-right">
-            <div className="products">
-              {products.map(product => (
-                <Product
-                  key={product.id}
-                  id={product.id}
-                  name={product.name}
-                  image={product.image}
-                  manufacture={product.manufacture}
-                  price={product.amount}
-                  category={product.category}
-                />
-              ))}
-            </div>
+            <ProductsList products={products} />
           </div>
         </div>
       </Container>
