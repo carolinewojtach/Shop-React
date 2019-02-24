@@ -1,7 +1,11 @@
 import React, { Component } from "react";
+
+import ProductsService from "../../services/products.service";
+
 import Container from "../Container/Container";
 import ProductsList from "../ProductsList/ProductsList";
-import ProductsService from "../../services/products.service";
+import HeaderBig from "../Header/HeaderBig";
+import HeaderSmall from "../Header/HeaderBig";
 
 class Homepage extends Component {
   render() {
@@ -17,12 +21,12 @@ class Homepage extends Component {
 
     return (
       <Container>
-        <h1 className="header-big">Welcome to our store</h1>
+        <HeaderBig>Welcome to our store</HeaderBig>
 
-        <h2 className="header-small">Desktops</h2>
+        <HeaderSmall>Desktops</HeaderSmall>
         <ProductsList products={desktopsFeatured} />
 
-        <h2 className="header-small">Tablets</h2>
+        <HeaderSmall>Tablets</HeaderSmall>
         <ProductsList products={tabletsFeatured} />
       </Container>
     );

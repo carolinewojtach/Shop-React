@@ -1,18 +1,19 @@
 import React, { Component } from "react";
+
+import ProductsService from "../../services/products.service";
+
+import style from "./Catalog.module.css";
+
 import Container from "../Container/Container";
 import ProductsList from "../ProductsList/ProductsList";
 import Sidebar from "../Sidebar/Sidebar";
-import ProductsService from "../../services/products.service";
+import HeaderBig from "../Header/HeaderBig";
 
 class Catalog extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      products: ProductsService.getProducts(),
-      placeholder: "search...",
-      searchText: ""
-    };
-  }
+  state = {
+    products: ProductsService.getProducts(),
+    searchText: ""
+  };
 
   showByManufacture = manufactureName => {
     if (manufactureName === "All") {
@@ -40,13 +41,11 @@ class Catalog extends Component {
       products,
       searchText
     });
-    console.log("searchText: " + this.state.searchText);
   };
 
   clearProducts = () => {
     this.setState({
       products: ProductsService.getProducts(),
-      placeholder: "search...",
       searchText: ""
     });
   };
@@ -55,19 +54,19 @@ class Catalog extends Component {
     const { products } = this.state;
     return (
       <Container>
-        <h1 className="header-big">Catalog</h1>
-        <div className="catalog">
-          <Sidebar
-            onManufactureCheck={elemChecked =>
-              this.showByManufacture(elemChecked)
-            }
-            onSearch={this.filterProducts}
-            clearProducts={this.clearProducts}
-            searchText={this.state.searchText}
-            placeholder={this.state.placeholder}
-          />
+        <HeaderBig>Catalog</HeaderBig>
+        <div className={style.Catalog}>
+          <div className={style.ColumnLeft}>
+            <Sidebar
+              onManufactureCheck={this.showByManufacture}
+              onSearch={this.filterProducts}
+              clearProducts={this.clearProducts}
+              searchText={this.state.searchText}
+              placeholder={"search..."}
+            />
+          </div>
 
-          <div className="column-right">
+          <div className={style.ColumnRight}>
             <ProductsList products={products} />
           </div>
         </div>

@@ -1,10 +1,12 @@
 import React from "react";
+
 import Container from "../Container/Container";
+import HeaderBig from "../Header/HeaderBig";
 
 const About = () => {
   return (
     <Container>
-      <h1 className="header-big">About</h1>
+      <HeaderBig>About</HeaderBig>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris
         scelerisque odio pharetra, rhoncus velit eget, feugiat magna. Integer ac

@@ -1,0 +1,10 @@
+.Catalog {
+    display: flex;
+}
+.ColumnRight{
+    width: 75%;
+}
+
+.ColumnLeft {
+    width: 25%;
+}

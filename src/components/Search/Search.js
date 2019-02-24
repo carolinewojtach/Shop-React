@@ -1,12 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
+import style from "./Search.module.css";
 
 const Search = props => {
   return (
     <div>
-      <div className="filter-header">
+      <div className={style.Header}>
         <h4>Search</h4>
-        <div onClick={props.clearProducts} className="clear">
+        <div onClick={props.clearProducts} className={style.Clear}>
           Clear
         </div>
       </div>
